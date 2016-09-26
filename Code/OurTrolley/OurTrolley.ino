@@ -76,10 +76,6 @@ void setup()
   pinMode(TriggerPin_Front, OUTPUT);
   pinMode(EchoPin_Front, INPUT);
 
-  //Initiate Pin for Buzzer/Horn 
-  pinMode(BuzzerPin, OUTPUT);
-  digitalWrite(BuzzerPin, LOW);  
-
   //Initiate Left Motor Pins
   pinMode(LeftMotor_DC_Pin, OUTPUT);
   pinMode(LeftMotor_BC_Pin, OUTPUT);
@@ -292,11 +288,7 @@ bool StopToAvoidObstracle()
   if (dist > 0 && dist <= 25)
   {
     Stop();  
-    digitalWrite(BuzzerPin, HIGH);
-    delay(500);
-    digitalWrite(BuzzerPin, LOW);
-    delay(500);
-
+    
     Serial.println("stop");
     return true;
   }
